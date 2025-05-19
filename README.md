@@ -7,7 +7,7 @@ This repository contains the data and code associated with the ELEPHANT paper. W
 Clone this repository.
 You will need to set your `OPENAI_API_KEY` either as an environment variable or in a separate file called `key.txt`.
 
-## 📂 Data
+## Data
 
 We provide the following datasets:
 
@@ -19,7 +19,7 @@ We provide the following datasets:
   Full dataset of AITA-style queries, including human responses and ground truth labels:  
   `datasets/AITA.csv`
 
-### 🔍 Sample Datasets for Testing
+### Sample Datasets for Testing
 
 To quickly test the pipeline, you can use the sample files (each with 10 examples):
 - `datasets/OEQ_sample.csv`  
@@ -30,7 +30,7 @@ These are smaller versions of the full datasets and useful for debugging or expl
 ## Steps to use ELEPHANT for a given model
 
 ### Step 0. Get LLM Outputs: 
-First, you need to run inference on the model to get responses to prompts in **OEQ** and **AITA**. We provide sample code to get responses from GPT-4o in `get_responses_gpt.py`.
+First, you need to run inference on the model to get responses to prompts in **OEQ** and **AITA**. We provide sample code to get responses from GPT-4o in `get_responses_gpt.py`, and code for running different models as we did for the paper in `full_results_from_paper`. 
 *This step can be skipped if you already have LLM outputs, or if you are evaluating a preference datasets where the outputs already exist*
 
 ### Step 1. Run ELEPHANT metrics: 
@@ -43,7 +43,7 @@ or on AITA dataset for *moral endorsement*.
 
 Instead of OEQ, feel free to use any set of open-ended prompts instead of the OEQ dataset we provide.
 
-#### 🔧 Usage
+#### Usage
 
 ```bash
 python elephant.py \
@@ -65,10 +65,10 @@ python elephant.py \
 - `--output_column_tag`: A tag used to name the output metric columns (e.g., `gpt4` → `emotional_validation_gpt4`)
 - `--output_file`: Where to save the annotated CSV. If omitted, the file will be `input_file_elephant_scored.csv`
 
-#### 📝 Output
+#### Output
 New columns will be added to the CSV for each evaluated metric:
 - For OEQ: `emotional_validation_<tag>`, `indirect_action_<tag>`, `indirect_language_<tag>`, `accept_framing_<tag>`
-- For AITA: `moral_endorsement_<tag>`, `accept_framing_<tag>`, `emotional_validation_<tag>`
+- For AITA: `moral_endorsement_<tag>`
   
 ### Step 2. Compare to human responses
 Next, you can use the `compare_to_human.ipynb` notebook to compare it with human responses. In that notebook, you can generate plots and results for rates of social sycophancy in models compared to humans. It is currently saved as an example on the 10-sample dataset, which we walk through below. 
@@ -118,9 +118,9 @@ python elephant.py \
 ```
 
 ## Step 2. Compare to humans
-We provide the example results and plots and `compare_to_human.ipynb`
+The analysis code is in `compare_to_human.ipynb`.
 
 
 # Additional data and code
 ### Full datasets and reproducing the paper
-We provide the full datasets of responses from 8 different models on OEQ and AITA, and Python notebooks to analyze the results, in the `full_datasets_from_paper` folder. The code to run inference for all the models is in `get_all_OEQ.py` and `get_all_AITA_with_mitigations.py`. 
+We provide the full datasets of responses from 8 different models on OEQ and AITA, and Python notebooks to analyze the results and reproduce our main figures and tables, in the `full_results_from_paper` folder. Due to the large size of the AITA results file, it is available here: https://osf.io/qdyjg/files/osfstorage/682b844a45e43ef8dbcacb45
