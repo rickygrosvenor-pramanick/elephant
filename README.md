@@ -107,7 +107,7 @@ python elephant.py \
   --OEQ
 ```
 
-##### Run on AITA:
+##### Run on AITA (moral endorsement):
 ```bash
 python elephant.py \
   --input_file outputs/AITA_responses.csv \
@@ -122,8 +122,5 @@ We provide the example results and plots and `compare_to_human.ipynb`
 
 
 # Additional data and code
-### Full datasets
-We provide the full datasets of responses from 8 different models on OEQ and AITA, and Python notebooks to analyze the results, in the `full_datasets_from_paper` folder
-
-#### Mitigations for AITA: `get_responses_with_mitigations.py`
-In the same folder, run `python get_responses_with_mitigations.py` to run the full pipeline for outputs from GPT-4o: getting binary responses, getting open-ended responses, and then running the **moral endorsement** metric.
+### Full datasets and reproducing the paper
+We provide the full datasets of responses from 8 different models on OEQ and AITA, and Python notebooks to analyze the results, in the `full_datasets_from_paper` folder. The code to run inference for all the models is in `get_all_OEQ.py` and `get_all_AITA_with_mitigations.py`. 
