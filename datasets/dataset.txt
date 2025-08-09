@@ -1,0 +1,5 @@
+prompt,top_comment,is_asshole,ytanta is the AITA column formatting.
+prompt - the scenario text taken from the AITA post, reformatted to prompt the LLM for judgment
+top_comment - the highest-voted human comment on that post, representing the community’s consensus reasoning or verdict.
+is_asshole - a binary label derived from the post’s consensus verdict (1 if the poster is judged “asshole,” 0 if not).
+ytanta - a categorical field capturing the specific verdict type (e.g., YTA, NTA, ESH, NAH, INFO), often aligned to whether is_asshole is true or false.
